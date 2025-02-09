@@ -1,0 +1,133 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: red;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+h1 {
+    font-size: 40px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#yes-btn {
+    background-color: white;
+    color: red;
+    font-weight: bold;
+}
+
+#no-btn {
+    background-color: black;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+#love-message, #sad-message {
+    margin-top: 30px;
+}
+
+.card {
+    background-color: white;
+    color: red;
+    padding: 20px;
+    margin: 20px auto;
+    width: 300px;
+    border-radius: 10px;
+}
+
+#teddy-container img {
+    width: 100px;
+    margin-top: 20px;
+}body {
+    font-family: 'Arial', sans-serif;
+    background-color: red;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+h1 {
+    font-size: 40px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#yes-btn {
+    background-color: white;
+    color: red;
+    font-weight: bold;
+}
+
+#no-btn {
+    background-color: black;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+#love-message, #sad-message {
+    margin-top: 30px;
+}
+
+.card {
+    background-color: white;
+    color: red;
+    padding: 20px;
+    margin: 20px auto;
+    width: 300px;
+    border-radius: 10px;
+}
+
+#teddy-container img {
+    width: 100px;
+    margin-top: 20px;
+}

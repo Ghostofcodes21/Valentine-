@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Shop</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          line-height: 1.6;
+          color: #333;
+          background-color: #f5f5f7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            color: #000000;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav ul li a {
+            color: #000000;
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        header nav ul li a:hover {
+            background: white;
+            color: #000000;
+            border: none;
+            padding: 8px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, #000000, #000000);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            background: black;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .hero button:hover {
+            background: #333;
+        }
+
+        /* Product Display Section */
+        .product-display {
+            padding: 50px 20px;
+            background: white;
+            text-align: center;
+        }
+
+        .product-display h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            width: 200px;
+            height: 250px;
+            perspective: 1000px;
+        }
+
+        .product-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-inner {
+            transform: rotateY(180deg);
+        }
+
+        .product-front, .product-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-front img {
+            width: 170px;
+            height: 190px;
+            margin-bottom: 10px;
+        }
+
+        .product-front h3 {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .product-back {
+            transform: rotateY(180deg);
+            background: #000000;
+            color: white;
+            font-size: 1.2em;
+            padding: 20px;
+        }
+
+        .product-back button {
+            background: white;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .product-back button:hover {
+            background: white;
+        }
+
+        /* Category Section */
+        .categories {
+            padding: 50px 20px;
+            background: white;
+            text-align: center;
+        }
+
+        .categories h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .category-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .category-card {
+            width: 160px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+            background: #000000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 130px;
+            height: 150px;
+            margin-bottom: 8px;
+        }
+
+        .category-card h3 {
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .category-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column {
+            max-width: 200px;
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #f9f9f9;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .footer-column ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-column p {
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-note {
+            font-size: 0.8em;
+            color: #ccc;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Phone Shop</div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="Shop.html">Store</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <h1>Welcome to Phone Shop</h1>
+        <p>Your one-stop shop for phones and accessories</p>
+        <a href="Shop.html">
+        <button>Shop Now</button>
+        </a>
+        <section></section>
+    <!-- Product Display Section -->
+        <h2>Our Featured Products</h2>
+        <div class="product-container">
+            <div class="product-card">
+                <div class="product-inner">
+                    <div class="product-front">
+                        <img src="images/14.jpeg" alt="Product 1">
+                    </div>
+                    <div class="product-back">
+                        <p>Iphone 14</p>
+                        <p>128 GB</p>
+                        <p>Price: GHS7000 </p>
+                        <button>Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-inner">
+                    <div class="product-front">
+                        <img src="images/14pro1.jpeg" alt="Product 2">
+                    </div>
+                    <div class="product-back">
+                        <P>Iphone 14 pro</P>
+                        <p>128 GB</p>
+                        <p>Price: GHS8990</p>
+                        <button>Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-inner">
+                    <div class="product-front">
+                        <img src="images/15.jpeg" alt="Product 3">
+                    </div>
+                    <div class="product-back">
+                        <p>Iphone 15</p>
+                        <p>256 GB</p>
+                        <p>Price: GHS10000</p>
+                        <button>Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-inner">
+                    <div class="product-front">
+                        <img src="images/15pro1.jpeg" alt="Product 4">
+                    </div>
+                    <div class="product-back">
+                        <p>Iphone 15pro</p>
+                        <p>1TB</p>
+                        <p>Price: GHS15000</p>
+                        <button>Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2>Explore Categories</h2>
+        <div class="category-container">
+            <div class="category-card">
+                <img src="images/cases.jpeg" alt="Cases">
+                <h3>Phone Cases</h3>
+            </div>
+            <div class="category-card">
+                <img src="images/watches.jpeg" alt="Watches">
+                <h3>Smartwatches</h3>
+            </div>
+            <div class="category-card">
+                <img src="images/airpods.jpeg" alt="Headphones">
+                <h3>Headphones</h3>
+            </div>
+            <div class="category-card">
+                <img src="images/diffuser.jpeg" alt="Diffusers">
+                <h3>Diffusers</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="Shop.html">Store</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Policies</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Email: bebukounde@ashawoboys.com</p>
+                <p>Phone: +233 fa bi ka ho</p>
+                <div class="social-icons">
+                    <a href="#"><img src="images/WhatsApp.jpeg" alt="whatsapp"></a>
+                    <a href="#"><img src="images/X.jpeg" alt="Twitter"></a>
+                    <a href="#"><img src="images/instagram.jpeg" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+        <p class="footer-note">© 2025 Phone Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>

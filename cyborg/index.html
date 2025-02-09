@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get4Less Ghana - Shop Online</title>
+    <style>
+        /* General Reset and Box Model */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #111;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        /* Product Categories Section */
+        .categories {
+            display: flex;
+            justify-content: space-around;
+            padding: 30px 0;
+            background-color: #fff;
+        }
+
+        .category {
+            text-align: center;
+            flex: 1;
+            margin: 0 15px;
+        }
+
+        .category img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .category img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Video Section */
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .hover-video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+            object-fit: cover;
+        }
+
+        .hover-video:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to Get4Less Ghana</h1>
+        <p>Your one-stop online store for quality products at unbeatable prices.</p>
+    </section>
+
+    <!-- Product Categories Section -->
+    <section class="categories">
+        <div class="category">
+            <img src="https://via.placeholder.com/300" alt="Electronics">
+            <p>Electronics</p>
+        </div>
+        <div class="category">
+            <img src="https://via.placeholder.com/300" alt="Home Appliances">
+            <p>Home Appliances</p>
+        </div>
+        <div class="category">
+            <img src="https://via.placeholder.com/300" alt="Fashion">
+            <p>Fashion</p>
+        </div>
+    </section>
+
+    <!-- Autoplay Video Section -->
+    <section class="video-container">
+        <video class="hover-video" muted>
+            <source src="your-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Get4Less Ghana. All Rights Reserved.</p>
+    </div>
+
+    <!-- JavaScript for Video Autoplay on Hover -->
+    <script>
+        const videos = document.querySelectorAll('.hover-video');
+
+        videos.forEach(video => {
+            video.addEventListener('mouseenter', () => {
+                video.play();
+            });
+
+            video.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        });
+    </script>
+
+</body>
+</html>
